@@ -25,5 +25,5 @@ module "ec2" {
 module "s3" {
   source = "./modules/s3"
 
-  bucket_name = "bucket_name = "terraform-lab-732203471303"
+  bucket_name = "bucket_name = "terraform-lab-732203471756"
 }
