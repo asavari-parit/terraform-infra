@@ -1,7 +1,8 @@
-resource "aws_vpc" "this" {
-  cidr_block = var.vpc_cidr
+resource "aws_subnet" "public_subnet" {
+  vpc_id     = aws_vpc.this.id
+  cidr_block = var.subnet_cidr
 
   tags = {
-    Name = var.vpc_name
+    Name = var.subnet_name
   }
 }
