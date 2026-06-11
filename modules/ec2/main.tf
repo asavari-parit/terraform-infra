@@ -25,5 +25,5 @@ resource "aws_security_group" "ec2_sg" {
 
 resource "aws_instance" "ec2" {
   ami                    = var.ami_id
-  instance_type          = var.instance_type
+  instance_type          = t3.small
 }
