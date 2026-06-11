@@ -1,1 +1,13 @@
+version: 0.2
 
+phases:
+  install:
+    commands:
+      - terraform --version
+
+  build:
+    commands:
+      - terraform init
+      - terraform validate
+      - terraform plan
+      - terraform apply -auto-approve
