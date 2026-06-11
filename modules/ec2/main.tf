@@ -1,5 +1,4 @@
 # Security Group
-
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2-security-group"
   description = "Allow SSH"
@@ -22,8 +21,14 @@ resource "aws_security_group" "ec2_sg" {
 }
 
 # EC2 Instance
-
 resource "aws_instance" "ec2" {
-  ami                    = var.ami_id
-  instance_type          = t3.small
+  ami           = var.ami_id
+  instance_type = "t3.small"
+
+  subnet_id              = var.subnet_id
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+
+  tags = {
+    Name = "terraform-ec2"
+  }
 }
