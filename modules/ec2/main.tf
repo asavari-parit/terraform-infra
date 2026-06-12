@@ -41,12 +41,15 @@ resource "aws_instance" "ec2" {
   associate_public_ip_address = true
 
   user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y nginx
-              systemctl enable nginx
-              systemctl start nginx
-              EOF
+                  #!/bin/bash
+                  yum update -y
+                  yum install -y nginx
+
+                  echo "<h1>Terraform Project Working</h1>" > /usr/share/nginx/html/index.html
+
+                  systemctl enable nginx
+                  systemctl start nginx
+                  EOF
 
   tags = {
     Name = "terraform-ec2"
