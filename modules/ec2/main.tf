@@ -45,7 +45,7 @@ resource "aws_instance" "ec2" {
                   yum update -y
                   yum install -y nginx
 
-                  echo "<h1>Terraform Project Working</h1>" > /usr/share/nginx/html/index.html
+                  echo "<h1>Terraform nginx deployments </h1>" > /usr/share/nginx/html/index.html
 
                   systemctl enable nginx
                   systemctl start nginx
